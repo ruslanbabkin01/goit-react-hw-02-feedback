@@ -1,30 +1,28 @@
 import PropTypes from 'prop-types';
-import { Section, Title, StatList, StatItem } from './Statistics.styled';
+import { RatingText } from './Statistics.styled';
 
-export const Statistics = ({ title, stats }) => {
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return (
-    <Section>
-      {title && <Title>{title}</Title>}
-
-      <StatList>
-        {stats.map(({ id, label, percentage }) => (
-          <StatItem key={id}>
-            <span>{label}</span>
-            <span>{percentage}%</span>
-          </StatItem>
-        ))}
-      </StatList>
-    </Section>
+    <>
+      <RatingText>Good: {good}</RatingText>
+      <RatingText>Neutral: {neutral}</RatingText>
+      <RatingText>Bad: {bad}</RatingText>
+      <RatingText>Total: {total}</RatingText>
+      <RatingText>Positive feedback: {positivePercentage}%</RatingText>
+    </>
   );
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    })
-  ),
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
