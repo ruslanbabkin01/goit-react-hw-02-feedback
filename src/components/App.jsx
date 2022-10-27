@@ -27,7 +27,7 @@ export class App extends Component {
     );
 
     return (
-      <Box width="340" mx="auto">
+      <Box mx="auto" width="320px">
         <Section title="Please leave feedback">
           <Feedback
             options={['good', 'neutral', 'bad']}
