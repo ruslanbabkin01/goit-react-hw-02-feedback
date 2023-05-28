@@ -1,6 +1,11 @@
-import { Feedback, Section, Statistics, Notification } from './index';
+import {
+  Feedback,
+  Section,
+  Statistics,
+  Notification,
+} from './components/index';
 import React, { Component } from 'react';
-import { Box } from '../styles/Box';
+import { Box } from './styles/Box';
 
 export class App extends Component {
   state = {
@@ -27,7 +32,7 @@ export class App extends Component {
     );
 
     return (
-      <Box mx="auto" width="320px">
+      <Box as="main" mx="auto" width="320px">
         <Section title="Please leave feedback">
           <Feedback
             options={['good', 'neutral', 'bad']}
